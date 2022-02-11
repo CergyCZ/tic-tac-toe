@@ -7,9 +7,12 @@ import java.util.HashMap;
 public class Game {
 
 	public static void main(String[] args) {
-		int size = 3;
-		int winLength = 3;
+		int size = 3; //Grid Size
+		int winLength = 3; // Win condition
 		Grid g = new Grid(size, winLength);
+		
+		
+		// New players here
 		Player p1 = new RandomAI("Franta", 'X', size);
 		//Player p1 = new Player("Franta", 'X');
 		Player p2 = new RowAI("Pepa", 'O', size, winLength, g);
@@ -18,7 +21,7 @@ public class Game {
 		Scanner input = new Scanner(System.in);
 		
 
-		
+		//Add every player to the pool
 		ArrayList<Player> playerPool = new ArrayList<Player>();
 		playerPool.add(p1);
 		playerPool.add(p2);
@@ -27,16 +30,16 @@ public class Game {
 		int playerCount = 0;
 		
 				
-		//gameloop
 		
 		
+		// multiple games loop
 		HashMap<Character, Integer> victoryScore = new HashMap<Character, Integer>();
 		for(Player p: playerPool) {
 			victoryScore.put(p.sign, 0);
 		}
 		
-		
-		for(int games = 0; games < 100; games++) {
+		//gameloop
+		for(int games = 0; games < 100; games++) { //number of games in row
 			while(!g.over()) {
 			
 				clearScreen();
