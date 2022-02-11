@@ -3,11 +3,12 @@ package ticTacToe;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Game {
 
 	public static void main(String[] args) {
-		int size = 3; //Grid Size
+		int size = 4; //Grid Size
 		int winLength = 3; // Win condition
 		Grid g = new Grid(size, winLength);
 		
@@ -27,7 +28,8 @@ public class Game {
 		playerPool.add(p2);
 		//playerPool.add(p3);
 		//playerPool.add(p4);
-		int playerCount = 0;
+		Random randomizeStartingPlayer = new Random();
+		int playerCount = randomizeStartingPlayer.nextInt(playerPool.size());
 		
 				
 		
